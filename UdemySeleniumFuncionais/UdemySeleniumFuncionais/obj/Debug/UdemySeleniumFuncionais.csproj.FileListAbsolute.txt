@@ -1,0 +1,22 @@
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.dll
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.pdb
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.dll
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.dll
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.xml
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.xml
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
+C:\VSTS_Matheus\TesteSM\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.pdb
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.xml
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.xml
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\pt-BR\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CoreCompileInputs.cache
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CopyComplete
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
+D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
