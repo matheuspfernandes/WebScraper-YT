@@ -19,25 +19,24 @@ namespace SettingEnviroment
         public void UIAcessarGoogle()
         {
             IWebDriver driver = new ChromeDriver();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(4000));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
-            //ERRO AO INSTANCIAR O FIREFOX DRIVER
-            /*
-            FirefoxOptions ffOp = new FirefoxOptions();
-            ffOp.AddArgument("https://www.google.com.br/");
-            ffOp.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
+            ////ERRO AO INSTANCIAR O FIREFOX DRIVER
+            //FirefoxOptions ffOp = new FirefoxOptions();
+            //ffOp.AddArgument("https://www.google.com.br/");
+            //ffOp.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
 
-            IWebDriver driver = new FirefoxDriver(
-                @"C:\Users\matheus.pires\Documents\Visual Studio 2015\Projects\SettingEnviroment\SettingEnviroment\bin\Debug", 
-                ffOp, 
-                TimeSpan.FromSeconds(30)
-            ); 
+            //IWebDriver driver = new FirefoxDriver(
+            //    @"C:\Users\matheus.pires\Documents\Visual Studio 2015\Projects\SettingEnviroment\SettingEnviroment\bin\Debug",
+            //    ffOp,
+            //    TimeSpan.FromSeconds(30)
+            //);
 
             //IWebDriver driver = new FirefoxDriver(new FirefoxBinary(), new FirefoxProfile(), TimeSpan.FromSeconds(180));
-            */
+
 
             try
-           {            
+            {            
                 driver.Navigate().GoToUrl("https://www.google.com.br/");
                 driver.Manage().Window.Size = new Size(1080, 960);
                 driver.Manage().Window.Position = new Point(12, 12);

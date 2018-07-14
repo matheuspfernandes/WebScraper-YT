@@ -16,6 +16,7 @@ namespace UdemySeleniumFuncionais
         IList<IWebElement> ListaDeOpcoesDoDropDown;
         SelectElement DropDown;
 
+
         #region[Metodos Principais]
 
         [TestMethod()]
@@ -172,8 +173,6 @@ namespace UdemySeleniumFuncionais
                 InteragirAlertaSimples();
                 InteragirAlertaConfirmacao();
                 InteragirAlertaPrompt();
-                
-
             }
             catch (Exception)
             {
@@ -197,8 +196,8 @@ namespace UdemySeleniumFuncionais
 
             driver.FindElement(By.Id("elementosForm:sugestoes")).SendKeys(texto);
             Assert.AreNotEqual("", driver.FindElement(By.Id("elementosForm:sugestoes")).GetAttribute("value"));
-
         }
+
         public void InteragirAlertaConfirmacao()
         {
             driver.FindElement(By.Id("confirm")).Click();
@@ -253,6 +252,7 @@ namespace UdemySeleniumFuncionais
         }
 
         #endregion
+
 
     }
 }
