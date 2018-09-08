@@ -8,7 +8,7 @@ using OpenQA.Selenium.Chrome;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.UI;
 using System.Drawing;
-using SettingEnviroment;
+using Base;
 
 namespace UI
 {
