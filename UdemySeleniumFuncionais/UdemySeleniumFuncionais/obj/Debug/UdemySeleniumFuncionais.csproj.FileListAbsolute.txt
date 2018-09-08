@@ -32,3 +32,5 @@ C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFunc
 C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
 C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
 C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Documentos\GitHub\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Documentos\GitHub\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CoreCompileInputs.cache
