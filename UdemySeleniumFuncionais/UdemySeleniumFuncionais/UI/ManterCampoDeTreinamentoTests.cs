@@ -3,16 +3,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using System.Collections.Generic;
 using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium.Chrome;
 using System.Drawing;
 using System.Threading;
+using SettingEnviroment;
 
-namespace UdemySeleniumFuncionais
+namespace UI
 {
-    [TestClass]
-    public class ManterCampoDeTreinamentoTests
+    [TestClass()]
+    public class ManterCampoDeTreinamentoTests : DriverFactory
     {
-        IWebDriver driver = new ChromeDriver();
+        //IWebDriver driver = new ChromeDriver();
         IList<IWebElement> ListaDeOpcoesDoDropDown;
         SelectElement DropDown;
 
@@ -36,9 +36,11 @@ namespace UdemySeleniumFuncionais
                 InsereElementos();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                Util.TirarPrint(driver);
+
+                throw e;
             }
             finally
             {
@@ -185,6 +187,8 @@ namespace UdemySeleniumFuncionais
             }
 
         }
+
+
         public void InteragirAlertaSimples()
         {
             driver.FindElement(By.Id("alert")).Click();

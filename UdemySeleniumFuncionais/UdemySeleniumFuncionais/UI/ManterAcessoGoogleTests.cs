@@ -8,17 +8,18 @@ using OpenQA.Selenium.Chrome;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.UI;
 using System.Drawing;
+using SettingEnviroment;
 
-namespace SettingEnviroment
+namespace UI
 {
     [TestClass]
-    public class GooglePage
+    public class GooglePage : DriverFactory
     {
         [TestMethod]
         [TestCategory("Interface")]
         public void UIAcessarGoogle()
         {
-            IWebDriver driver = new ChromeDriver();
+            //IWebDriver driver = new ChromeDriver();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
 
             ////ERRO AO INSTANCIAR O FIREFOX DRIVER

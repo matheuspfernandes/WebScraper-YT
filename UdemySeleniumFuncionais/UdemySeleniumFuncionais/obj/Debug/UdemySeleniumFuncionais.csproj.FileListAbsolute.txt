@@ -20,3 +20,15 @@ D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\U
 D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CopyComplete
 D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
 D:\MY THINGS\Desktop\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\System.Data.Common.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\System.Data.SqlClient.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.xml
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.xml
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
+C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
