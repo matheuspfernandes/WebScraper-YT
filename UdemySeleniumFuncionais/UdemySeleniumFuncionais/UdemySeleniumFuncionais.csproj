@@ -66,13 +66,7 @@
   <ItemGroup>
     <Compile Include="Configuracoes\DriverFactory.cs" />
     <Compile Include="UI\ManterAcessoGoogleTests.cs" />
-    <Compile Include="Configuracoes\Util.cs" />
-    <Compile Include="UI\ManterCampoDeTreinamentoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Campo de treinamento HTML\componentes.html" />
-    <Content Include="Campo de treinamento HTML\frame.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

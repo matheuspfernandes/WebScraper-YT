@@ -12,50 +12,35 @@ using SettingEnviroment;
 
 namespace UI
 {
-    [TestClass]
+    [TestClass()]
     public class GooglePage : DriverFactory
     {
         [TestMethod]
         [TestCategory("Interface")]
         public void UIAcessarGoogle()
         {
-            //IWebDriver driver = new ChromeDriver();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-
-            ////ERRO AO INSTANCIAR O FIREFOX DRIVER
-            //FirefoxOptions ffOp = new FirefoxOptions();
-            //ffOp.AddArgument("https://www.google.com.br/");
-            //ffOp.BrowserExecutableLocation = @"C:\Program Files (x86)\Mozilla Firefox\firefox.exe";
-
-            //IWebDriver driver = new FirefoxDriver(
-            //    @"C:\Users\matheus.pires\Documents\Visual Studio 2015\Projects\SettingEnviroment\SettingEnviroment\bin\Debug",
-            //    ffOp,
-            //    TimeSpan.FromSeconds(30)
-            //);
-
-            //IWebDriver driver = new FirefoxDriver(new FirefoxBinary(), new FirefoxProfile(), TimeSpan.FromSeconds(180));
-
-
-            try
-            {            
+                
+            try 
+            {
+                InicializaBrowser();
                 driver.Navigate().GoToUrl("https://www.google.com.br/");
-                driver.Manage().Window.Size = new Size(1080, 960);
-                driver.Manage().Window.Position = new Point(12, 12);
                 
                 driver.FindElement(By.Name("q")).SendKeys("Rumo Soluções");
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
                 driver.FindElement(By.LinkText("Imagens")).Click();
-                Util.TirarPrint(driver);
+                TirarPrint();
+
                 driver.FindElement(By.LinkText("Todas")).Click();
-                wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Rumo Soluções")));
+                EsperaPorElementoVisivel(By.LinkText("Rumo Soluções"));
                 driver.FindElement(By.LinkText("Rumo Soluções")).Click();
                 Assert.AreEqual("Rumo Soluções", driver.Title);
-                Util.TirarPrint(driver);
+
+                TirarPrint();
                 Console.WriteLine("Passed");
            }
            catch (Exception e)
            {                
-                Util.TirarPrint(driver);
+                TirarPrint();
 
                 throw e;
            }

@@ -11,18 +11,19 @@ using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Chrome;
 
-namespace SettingEnviroment
+namespace Base
 {
-    public abstract class DriverFactory
+    public class DriverFactory
     {
         public string local = AppDomain.CurrentDomain.BaseDirectory;
-        protected WebDriverWait wait;
         private Actions action;
-        protected IWebDriver driver = new ChromeDriver();
         public SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
-        
 
-        #region [Métodos para colocar no AuxiliarSQL (Metodos novos)]
+        protected IWebDriver driver;
+        protected WebDriverWait wait;
+
+
+        #region [Métodos para colocar no AuxiliarSQL]
 
         public void RunSQLScript(string script)
         {
@@ -74,21 +75,103 @@ namespace SettingEnviroment
         #endregion
 
 
-        #region [Parametrização e refactoring (Metodos novos)]
+        #region [Métodos JS]
 
-        public void EsperaPeloAlertaVisivel()
+        public object ExecutaComandoJavaScript(string ComandoJS)
         {
-            EsperaPorElementoVisivel(By.CssSelector("p"));
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            return js.ExecuteScript(ComandoJS);
         }
 
-        public DateTime RetornaMesReferenciaDoDiaAtualParaFaturamentoDia15()
+        public void RealizaScrollAteElemento(By by)
         {
-            DateTime Hoje = DateTime.Now;
+            IWebElement element = driver.FindElement(by);
+            ExecutaComandoJavaScript("window.scrollBy(0, " + element.Location.Y + ")");
+        }
 
-            if (Hoje.Day > 15)
-                Hoje = DateTime.Now.AddMonths(1);
+        public void MarcaPosicaoOndeDeveriaReceberOClique(int X, int Y)
+        {
+            ExecutaComandoJavaScript("document.elementFromPoint(" + X + "," + Y + ").style.color = 'red'");
+        }
 
-            return Hoje;
+        public void SelecionarOpcaoDropDown(String idDropDown, String opcaoSelecionar)
+        {
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
+            String dropdownScript = "var select = window.document.getElementById('" +
+             idDropDown +
+             "'); for(var i = 0; i < select.options.length; i++){if(select.options[i].text == '" +
+             opcaoSelecionar +
+             "'){ select.options[i].selected = true; } }";
+
+            Thread.Sleep(2000);
+            executor.ExecuteScript(dropdownScript);
+            Thread.Sleep(2000);
+
+            String clickScript = "if (" + "\"createEvent\"" + " in document) {var evt = document.createEvent(" + "\"HTMLEvents\"" + ");     evt.initEvent(" + "\"change\"" + ", false, true); " + idDropDown + ".dispatchEvent(evt); } else " + idDropDown + ".fireEvent(" + "\"onchange\"" + ");";
+
+            executor.ExecuteScript(clickScript);
+        }
+
+        #endregion
+
+
+        #region [Esperas explicitas]
+
+        public void EsperaPorElementoClicavel(By by)
+        {
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until(ExpectedConditions.ElementToBeClickable(by));
+        }
+
+        public void EsperaPorElementoVisivel(By by)
+        {
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
+
+        public void EsperaPorElementosLocalizadosPor(By elemento, int tempo)
+        {
+            new WebDriverWait(driver, TimeSpan.FromSeconds(tempo)).Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(elemento));
+        }
+        
+        public void EsperaAteMudancaDoAtributoDoElemento(By by, string AtributoDesejado, string NovoValor)
+        {
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(45));
+
+            wait.Until(driver => driver.FindElement(by).Enabled
+                  && RetornaValorDoAtributoDeUmElemento(driver.FindElement(by), AtributoDesejado).Contains(NovoValor)
+              );
+        }
+
+        #endregion
+
+
+        #region[Esta presente na tela?]
+
+        public bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool isAlertPresent()
+        {
+            try
+            {
+                driver.SwitchTo().Alert();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public bool AreElementsPresent(By by)
@@ -158,6 +241,64 @@ namespace SettingEnviroment
             return false;
 
         }
+
+
+        #endregion
+
+
+        #region [Captura de tela]
+
+        public void TirarPrint()
+        {
+            DateTime dateTime = DateTime.Now;
+            string horaAtual = dateTime.ToString();
+            horaAtual = horaAtual.Replace('/', '-'); horaAtual = horaAtual.Replace(':', '_');
+
+            string pastaArquivo = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            try
+            {
+                Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
+                ss.SaveAsFile(pastaArquivo + "\\fullScreenShot " + horaAtual + ".jpeg", ScreenshotImageFormat.Jpeg);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
+        }
+
+        #endregion
+
+
+        #region [Metodos do browser]
+
+        protected void FinalizaNavegador()
+        {
+            if (isAlertPresent())
+            {
+                driver.SwitchTo().Alert().Accept();
+                driver.Quit();
+            }
+
+            else
+                driver.Quit();
+        }
+
+        protected void InicializaBrowser()
+        {
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+        }
+
+
+        #endregion
+
+
+
+
+        #region [Parametrização e refactoring]
 
         public int RetornaNumeroDaLinhaDeUmDiaUtil()
         {
@@ -267,16 +408,6 @@ namespace SettingEnviroment
             return TextosEstaoNosAlertas;
         }
 
-        public void ValidaCamposObrigatoriosGeral(List<string> MensagensEsperadasNosAlertas)
-        {
-            EsperaPeloAlertaVisivel();
-
-            if (!AreTextsInAlerts(MensagensEsperadasNosAlertas))
-                Assert.Fail("Os campos deveriam ser obrigatorios, porem nao foram requisitados");
-            else
-                Console.WriteLine("Validou campos obrigatorios\n");
-        }
-
         public void ValidaCamposObrigatoriosGeral(string MensagemEsperadaNoAlerta)
         {
             EsperaPorElementoVisivel(By.CssSelector("p"));
@@ -290,92 +421,6 @@ namespace SettingEnviroment
 
         #endregion
 
-
-        #region [Métodos JS (Tem métodos novos)]
-
-        public object ExecutaComandoJavaScript(string ComandoJS)
-        {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            return js.ExecuteScript(ComandoJS);
-        }
-
-        public void RealizaScrollAteElemento(By by)
-        {
-            IWebElement element = driver.FindElement(by);
-            ExecutaComandoJavaScript("window.scrollBy(0, " + element.Location.Y + ")");
-        }
-
-        public void MarcaPosicaoOndeDeveriaReceberOClique(int X, int Y)
-        {
-            ExecutaComandoJavaScript("document.elementFromPoint(" + X + "," + Y + ").style.color = 'red'");
-        }
-
-        public void SelecionarOpcaoDropDown(String idDropDown, String opcaoSelecionar)
-        {
-            IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
-            String dropdownScript = "var select = window.document.getElementById('" +
-             idDropDown +
-             "'); for(var i = 0; i < select.options.length; i++){if(select.options[i].text == '" +
-             opcaoSelecionar +
-             "'){ select.options[i].selected = true; } }";
-
-            Thread.Sleep(2000);
-            executor.ExecuteScript(dropdownScript);
-            Thread.Sleep(2000);
-
-            String clickScript = "if (" + "\"createEvent\"" + " in document) {var evt = document.createEvent(" + "\"HTMLEvents\"" + ");     evt.initEvent(" + "\"change\"" + ", false, true); " + idDropDown + ".dispatchEvent(evt); } else " + idDropDown + ".fireEvent(" + "\"onchange\"" + ");";
-
-            executor.ExecuteScript(clickScript);
-        }
-
-        #endregion
-
-
-        #region [Esperas explicitas]
-
-        public void EsperaPorElementoClicavel(By by)
-        {
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            wait.Until(ExpectedConditions.ElementToBeClickable(by));
-        }
-
-        public void EsperaPorElementoVisivel(By by)
-        {
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-            wait.Until(ExpectedConditions.ElementIsVisible(by));
-        }
-
-        public void EsperaPorElementosLocalizadosPor(By elemento, int tempo)
-        {
-            new WebDriverWait(driver, TimeSpan.FromSeconds(tempo)).Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(elemento));
-        }
-
-        //Tem que testar ainda
-        public void EsperaAteMudancaDoAtributoDoElemento(By by, string AtributoDesejado, string NovoValor)
-        {
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(45));
-
-            wait.Until(driver => driver.FindElement(by).Enabled
-                  && RetornaValorDoAtributoDeUmElemento(driver.FindElement(by), AtributoDesejado).Contains(NovoValor)
-              );
-        }
-
-        public bool IsElementPresent(By by)
-        {
-            try
-            {
-                driver.FindElement(by);
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        #endregion
-
-       
     }
 }
 
