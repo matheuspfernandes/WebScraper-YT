@@ -15,16 +15,14 @@ namespace UI
     [TestClass()]
     public class GooglePage : DriverFactory
     {
-        [TestMethod]
-        [TestCategory("Interface")]
+        [TestMethod()]
+        [TestCategory("GooglePage")]
         public void UIAcessarGoogle()
         {
-                
             try 
             {
-                InicializaBrowser();
-                driver.Navigate().GoToUrl("https://www.google.com.br/");
-                
+                InicializaBrowserAnonimo("https://www.google.com.br/");
+
                 driver.FindElement(By.Name("q")).SendKeys("Rumo Soluções");
                 driver.FindElement(By.Name("q")).SendKeys(Keys.Enter);
                 driver.FindElement(By.LinkText("Imagens")).Click();

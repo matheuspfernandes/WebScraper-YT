@@ -10,6 +10,7 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 
 namespace Base
 {
@@ -18,12 +19,13 @@ namespace Base
         public string local = AppDomain.CurrentDomain.BaseDirectory;
         private Actions action;
         public SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
+        public ChromeOptions options;
 
         protected IWebDriver driver;
         protected WebDriverWait wait;
 
 
-        #region [Métodos para colocar no AuxiliarSQL]
+        #region [SQL]
 
         public void RunSQLScript(string script)
         {
@@ -75,7 +77,7 @@ namespace Base
         #endregion
 
 
-        #region [Métodos JS]
+        #region [JS]
 
         public object ExecutaComandoJavaScript(string ComandoJS)
         {
@@ -274,6 +276,31 @@ namespace Base
 
         #region [Metodos do browser]
 
+        protected void InicializaBrowserAnonimo(string linkToAccess)
+        {
+            options = new ChromeOptions();
+            options.AddArguments("--incognito");
+
+            InicializaBrowser(linkToAccess);
+        }
+
+        //OS PRINTS FICAM BUGADOS
+        protected void InicializaBrowserHeadLess(string linkToAccess)
+        {
+            options = new ChromeOptions();
+            options.AddArgument("--headless");
+
+            InicializaBrowser(linkToAccess);
+        }
+
+        protected void InicializaBrowser(string linkToAccess)
+        {
+            options.AddArgument("--start-maximized");
+
+            driver = new ChromeDriver(options);
+            driver.Navigate().GoToUrl(linkToAccess);
+        }
+
         protected void FinalizaNavegador()
         {
             if (isAlertPresent())
@@ -286,15 +313,12 @@ namespace Base
                 driver.Quit();
         }
 
-        protected void InicializaBrowser()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-        }
-
-
         #endregion
 
+
+        #region [DSL]
+
+        #endregion
 
 
 
