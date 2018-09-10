@@ -24,8 +24,8 @@ namespace UdemySeleniumFuncionais.UI
         {
             try
             {
-                InicializaBrowserAnonimo("https://www.youtube.com/watch?v=YnrN0o0lubM");
-                Thread.Sleep(2000);
+                InicializaBrowserAnonimoHeadless("https://youtu.be/UodNxl8tgtg");
+                Thread.Sleep(3000);
 
                 Console.WriteLine(ObterNome());
                 Console.WriteLine(ObterLink());

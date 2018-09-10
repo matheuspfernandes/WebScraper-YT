@@ -284,6 +284,15 @@ namespace Base
             InicializaBrowser(linkToAccess);
         }
 
+        protected void InicializaBrowserAnonimoHeadless(string linkToAccess)
+        {
+            options = new ChromeOptions();
+            options.AddArgument("--headless");
+            options.AddArguments("--incognito");
+
+            InicializaBrowser(linkToAccess);
+        }
+
         //OS PRINTS FICAM BUGADOS
         protected void InicializaBrowserHeadLess(string linkToAccess)
         {

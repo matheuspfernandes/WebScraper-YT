@@ -14,7 +14,6 @@ namespace UdemySeleniumFuncionais.POM
 {
     public class YouTubePageObject : DriverFactory
     {
-        public string UrlBase = "https://www.youtube.com";
 
         public string ObterQuantViews()
         {
