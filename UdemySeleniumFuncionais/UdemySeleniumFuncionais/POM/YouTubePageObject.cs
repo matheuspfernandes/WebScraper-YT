@@ -23,7 +23,8 @@ namespace UdemySeleniumFuncionais.POM
 
         public string ObterCategoria()
         {
-            return driver.FindElement(By.XPath("//*[@id='content']/yt-formatted-string/a")).Text;
+            driver.FindElement(By.XPath("//*[text()='Mostrar mais']/..//*[@role='button']")).Click();
+            return driver.FindElement(By.XPath("//*[@id='collapsible']//*[text()='Categoria']/../..//yt-formatted-string/a")).Text;
         }
 
         public string ObterNome()
@@ -39,14 +40,11 @@ namespace UdemySeleniumFuncionais.POM
         public List<string> RetornaLinksRecomendados()
         {
             List<string> LinkRecomendados = new List<string>();
-
-            //var ListaDeVideos = driver.FindElements(By.XPath("//*[@id='items' and @class='style-scope ytd-watch-next-secondary-results-renderer']//*[@class='style-scope ytd-watch-next-secondary-results-renderer']//*[@id='dismissable']/a"));
-            var ListaDeVideos = driver.FindElements(By.XPath("//*[@id='video - title']/../.."));
+            var ListaDeVideos = driver.FindElements(By.XPath("//*[@id='items' and @class='style-scope ytd-watch-next-secondary-results-renderer']//*[@class='style-scope ytd-watch-next-secondary-results-renderer']//*[@id='dismissable']/a"));
 
             foreach (IWebElement video in ListaDeVideos)
             {
-                LinkRecomendados.Add(UrlBase + video.GetAttribute("href"));
-                //Console.WriteLine(UrlBase + video.GetAttribute("href"));
+                LinkRecomendados.Add(video.GetAttribute("href"));
             }
 
             return LinkRecomendados;

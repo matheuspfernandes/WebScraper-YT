@@ -24,13 +24,13 @@ namespace UdemySeleniumFuncionais.UI
         {
             try
             {
-                InicializaBrowserAnonimo("https://www.youtube.com/watch?v=-UY9jUwVTHg");
-                Thread.Sleep(10000);
+                InicializaBrowserAnonimo("https://www.youtube.com/watch?v=YnrN0o0lubM");
+                Thread.Sleep(2000);
 
                 Console.WriteLine(ObterNome());
                 Console.WriteLine(ObterLink());
-                //Console.WriteLine(ObterCategoria());
-                Console.WriteLine(ObterQuantViews());
+                Console.WriteLine(ObterCategoria());
+                Console.WriteLine(ObterQuantViews() + "\n");
 
                 foreach(string url in RetornaLinksRecomendados())
                 {
