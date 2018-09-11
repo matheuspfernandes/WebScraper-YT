@@ -14,6 +14,7 @@ namespace UdemySeleniumFuncionais.POM
 {
     public class YouTubePageObject : DriverFactory
     {
+        public RecomendacoesVideo RV = new RecomendacoesVideo(); 
 
         public string ObterQuantViews()
         {
@@ -36,14 +37,14 @@ namespace UdemySeleniumFuncionais.POM
             return driver.Url;
         }
 
-        public List<string> RetornaLinksRecomendados()
+        public List<RecomendacoesVideo> RetornaLinksRecomendados()
         {
-            List<string> LinkRecomendados = new List<string>();
+            List<RecomendacoesVideo> LinkRecomendados = new List<RecomendacoesVideo>();
             var ListaDeVideos = driver.FindElements(By.XPath("//*[@id='items' and @class='style-scope ytd-watch-next-secondary-results-renderer']//*[@class='style-scope ytd-watch-next-secondary-results-renderer']//*[@id='dismissable']/a"));
 
             foreach (IWebElement video in ListaDeVideos)
-            {
-                LinkRecomendados.Add(video.GetAttribute("href"));
+            {   
+                //LinkRecomendados.Add(video.GetAttribute("href"));
             }
 
             return LinkRecomendados;

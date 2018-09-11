@@ -17,6 +17,7 @@ namespace UdemySeleniumFuncionais.UI
     [TestClass()]
     public class YouTubeAccess : YouTubePageObject
     {
+        RecomendacoesVideo G_Video;
 
         [TestMethod()]
         [TestCategory("YouTubePage")]
@@ -24,27 +25,30 @@ namespace UdemySeleniumFuncionais.UI
         {
             try
             {
-                InicializaBrowserAnonimoHeadless("https://youtu.be/UodNxl8tgtg");
+                InicializaBrowserAnonimo("https://youtu.be/UodNxl8tgtg");
                 Thread.Sleep(3000);
 
-                Console.WriteLine(ObterNome());
-                Console.WriteLine(ObterLink());
-                Console.WriteLine(ObterCategoria());
-                Console.WriteLine(ObterQuantViews() + "\n");
+                G_Video = new RecomendacoesVideo(ObterNome(), ObterLink(), ObterCategoria(), ObterQuantViews());
+                ObterNome();
+                ObterLink();
+                ObterCategoria();
+                ObterQuantViews();
 
-                foreach(string url in RetornaLinksRecomendados())
-                {
-                    Console.WriteLine(url);
-                }  
+                //foreach(string url in RetornaLinksRecomendados())
+                //{
+                //    Console.WriteLine(url);
+                //}  
 
                 Console.WriteLine("\nPassed");
             }
+
             catch (Exception e)
             {
                 TirarPrint();
 
                 throw e;
             }
+
             finally
             {
                 driver.Quit();
