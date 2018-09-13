@@ -11,35 +11,34 @@ using System.Drawing;
 using Base;
 using OpenQA.Selenium.Remote;
 using UdemySeleniumFuncionais.POM;
+using System.Collections.Generic;
 
 namespace UdemySeleniumFuncionais.UI
 {
     [TestClass()]
     public class YouTubeAccess : YouTubePageObject
     {
-        RecomendacoesVideo G_Video;
-
         [TestMethod()]
         [TestCategory("YouTubePage")]
         public void UIAcessarYouTube()
         {
             try
             {
-                InicializaBrowserAnonimo("https://youtu.be/UodNxl8tgtg");
+                var link = "https://www.youtube.com/watch?v=a3TpBg1T9_k";
+
+                InicializaBrowserAnonimoHeadless(link);
                 Thread.Sleep(3000);
 
-                G_Video = new RecomendacoesVideo(ObterNome(), ObterLink(), ObterCategoria(), ObterQuantViews());
-                ObterNome();
-                ObterLink();
-                ObterCategoria();
-                ObterQuantViews();
+                var listaRecomendacoes = PegaTodoMundo();
+                var listaTotal = new List<RecomendacoesVideo>();
 
-                //foreach(string url in RetornaLinksRecomendados())
-                //{
-                //    Console.WriteLine(url);
-                //}  
+                foreach (var item in listaRecomendacoes)
+                {
+                    driver.Url = item.Link;
+                    PegaTodoMundo();
 
-                Console.WriteLine("\nPassed");
+                    Console.WriteLine("\\Passouuuu");
+                }
             }
 
             catch (Exception e)

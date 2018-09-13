@@ -1,11 +1,4 @@
 ﻿using Base;
-using System.Threading;
-using OpenQA.Selenium.Interactions;
-using System.IO;
-using System.Data.SqlClient;
-using System.Collections.ObjectModel;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Remote;
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using System;
@@ -39,15 +32,31 @@ namespace UdemySeleniumFuncionais.POM
 
         public List<RecomendacoesVideo> RetornaLinksRecomendados()
         {
+            RecomendacoesVideo RV;
             List<RecomendacoesVideo> LinkRecomendados = new List<RecomendacoesVideo>();
             var ListaDeVideos = driver.FindElements(By.XPath("//*[@id='items' and @class='style-scope ytd-watch-next-secondary-results-renderer']//*[@class='style-scope ytd-watch-next-secondary-results-renderer']//*[@id='dismissable']/a"));
 
             foreach (IWebElement video in ListaDeVideos)
-            {   
-                //LinkRecomendados.Add(video.GetAttribute("href"));
+            {
+                RV = new RecomendacoesVideo(video.GetAttribute("href"));
+                LinkRecomendados.Add(RV);
             }
 
             return LinkRecomendados;
+        }
+
+        public List<RecomendacoesVideo> PegaTodoMundo()
+        {
+            var video = new RecomendacoesVideo(ObterLink());
+            video.Nome = ObterNome();
+            video.Categoria = ObterCategoria();
+            video.QuantViews = ObterQuantViews();
+            video.Recomendacoes = RetornaLinksRecomendados();
+
+            Console.WriteLine(video.Print());
+            Console.WriteLine("\nPassed");
+
+            return video.Recomendacoes;
         }
 
 

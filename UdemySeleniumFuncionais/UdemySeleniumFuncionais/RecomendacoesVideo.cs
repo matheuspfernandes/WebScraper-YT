@@ -12,7 +12,7 @@ namespace UdemySeleniumFuncionais
         public string Link { get; set; }
         public string Categoria { get; set; }
         public string QuantViews { get; set; }
-        List<RecomendacoesVideo> Recomendacoes { get; set; }
+        public List<RecomendacoesVideo> Recomendacoes { get; set; }
 
         public RecomendacoesVideo()
         {
@@ -22,7 +22,6 @@ namespace UdemySeleniumFuncionais
         public RecomendacoesVideo(string link)
         {
             Link = link;
-            Recomendacoes = new List<RecomendacoesVideo>();
         }
 
         public RecomendacoesVideo(string nome, string link, string categoria, string quantViews, List<RecomendacoesVideo> recomendacoes)
@@ -41,6 +40,30 @@ namespace UdemySeleniumFuncionais
             Categoria = categoria;
             QuantViews = quantViews;
             Recomendacoes = new List<RecomendacoesVideo>();
+        }
+
+        public string Print()
+        {
+            return  Nome + "\n" +
+                    Link + "\n" +
+                    Categoria + "\n" +
+                    QuantViews + "\n" + 
+                    ReturnLinks();
+        }
+
+        public string ReturnLinks()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (Recomendacoes != null)
+            {
+                foreach (RecomendacoesVideo s in Recomendacoes)
+                {
+                    sb.Append(s.Link + "\n");
+                }
+            }
+
+            return sb.ToString();
         }
 
     }
