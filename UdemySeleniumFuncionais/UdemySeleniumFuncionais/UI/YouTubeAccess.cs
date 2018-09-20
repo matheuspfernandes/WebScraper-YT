@@ -26,7 +26,7 @@ namespace UdemySeleniumFuncionais.UI
             {
                 var link = "https://www.youtube.com/watch?v=a3TpBg1T9_k";
 
-                InicializaBrowserAnonimoHeadless(link);
+                InicializaBrowserAnonimo(link);
                 Thread.Sleep(3000);
 
                 var listaRecomendacoes = PegaTodoMundo();
@@ -36,8 +36,8 @@ namespace UdemySeleniumFuncionais.UI
                 {
                     driver.Url = item.Link;
                     PegaTodoMundo();
-
-                    Console.WriteLine("\\Passouuuu");
+                    item.Print();
+                    Console.WriteLine("END\n\n");
                 }
             }
 
