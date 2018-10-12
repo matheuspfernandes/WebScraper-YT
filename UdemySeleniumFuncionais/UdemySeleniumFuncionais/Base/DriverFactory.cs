@@ -330,8 +330,7 @@ namespace Base
         #endregion
 
 
-
-        #region [Parametrização e refactoring]
+        #region [Parametrização]
 
         public int RetornaNumeroDaLinhaDeUmDiaUtil()
         {
@@ -345,7 +344,6 @@ namespace Base
 
             return 0;
         }
-
 
         /// <summary>
         /// Retorna o texto contido no elemento. Caso não tiver nenhum texto, retorna "empty"
@@ -450,7 +448,6 @@ namespace Base
             else
                 Console.WriteLine("Validou campo obrigatorio");
         }
-
 
         #endregion
 

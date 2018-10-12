@@ -9,6 +9,16 @@ namespace UdemySeleniumFuncionais.POM
     {
         public RecomendacoesVideo RV = new RecomendacoesVideo(); 
 
+        public string ObterNomeCanal()
+        {
+            return "";
+        }
+
+        public string ObterQuantLikes()
+        {
+            return "";
+        } 
+
         public string ObterQuantViews()
         {
             EsperaPorElementoVisivel(By.XPath("//*[@id='count']/yt-view-count-renderer/span[1]"));
@@ -61,7 +71,7 @@ namespace UdemySeleniumFuncionais.POM
             video.QuantViews = ObterQuantViews();
             video.Recomendacoes = RetornaLinksRecomendados();
 
-            Console.WriteLine(video.Print());
+            Console.WriteLine(video.Show());
             Console.WriteLine("\nPassed");
 
             return video.Recomendacoes;

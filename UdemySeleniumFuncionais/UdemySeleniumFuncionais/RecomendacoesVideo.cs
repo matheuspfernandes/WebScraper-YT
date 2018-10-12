@@ -42,7 +42,7 @@ namespace UdemySeleniumFuncionais
             Recomendacoes = new List<RecomendacoesVideo>();
         }
 
-        public string Print()
+        public string Show()
         {
             return  Nome + "\n" +
                     Link + "\n" +

@@ -24,7 +24,7 @@ namespace UdemySeleniumFuncionais.UI
         {
             try
             {
-                var link = "https://www.youtube.com/watch?v=a3TpBg1T9_k";
+                var link = "https://www.youtube.com/watch?v=TXteIWha4Jo";
 
                 InicializaBrowserAnonimo(link);
                 Thread.Sleep(3000);
@@ -36,7 +36,7 @@ namespace UdemySeleniumFuncionais.UI
                 {
                     driver.Url = item.Link;
                     PegaTodoMundo();
-                    item.Print();
+                    item.Show();
                     Console.WriteLine("END\n\n");
                 }
             }
