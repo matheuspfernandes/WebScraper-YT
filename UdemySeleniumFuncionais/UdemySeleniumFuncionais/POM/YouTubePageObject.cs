@@ -7,16 +7,18 @@ namespace UdemySeleniumFuncionais.POM
 {
     public class YouTubePageObject : DriverFactory
     {
-        public RecomendacoesVideo RV = new RecomendacoesVideo(); 
+        //public VideoYT RV = new VideoYT(); 
 
         public string ObterNomeCanal()
         {
-            return "";
+            EsperaPorElementoVisivel(By.XPath("//*[@id='owner - name']/a"));
+            return driver.FindElement(By.XPath("//*[@id='owner - name']/a")).Text;
         }
 
         public string ObterQuantLikes()
         {
-            return "";
+            EsperaPorElementoVisivel(By.XPath("//yt-formatted-string[contains(@aria-label,'gostaram')]"));
+            return driver.FindElement(By.XPath("//yt-formatted-string[contains(@aria-label,'gostaram')]")).Text;
         } 
 
         public string ObterQuantViews()
@@ -45,38 +47,51 @@ namespace UdemySeleniumFuncionais.POM
             return driver.Url;
         }
 
-        public List<RecomendacoesVideo> RetornaLinksRecomendados()
+        public List<VideoYT> RetornaLinksRecomendados()
         {
             By by = By.XPath("//*[@id='items' and @class='style-scope ytd-watch-next-secondary-results-renderer']//*[@class='style-scope ytd-watch-next-secondary-results-renderer']//*[@id='dismissable']/a");
-            RecomendacoesVideo RV;
-            List<RecomendacoesVideo> LinkRecomendados = new List<RecomendacoesVideo>();
+            VideoYT videoYT;
+            List<VideoYT> LinkRecomendados = new List<VideoYT>();
 
             EsperaPorElementosLocalizadosPor(by, 15);
             var ListaDeVideos = driver.FindElements(by);
 
             foreach (IWebElement video in ListaDeVideos)
             {
-                RV = new RecomendacoesVideo(video.GetAttribute("href"));
-                LinkRecomendados.Add(RV);
+                videoYT = new VideoYT(video.GetAttribute("href"));
+                LinkRecomendados.Add(videoYT);
             }
 
             return LinkRecomendados;
         }
 
-        public List<RecomendacoesVideo> PegaTodoMundo()
+        public VideoYT IteracaoInicial()
         {
-            var video = new RecomendacoesVideo(ObterLink());
-            video.Nome = ObterNome();
+            var video = new VideoYT(ObterLink());
+            video.NomeVideo = ObterNome();
+            video.NomeCanal = ObterNomeCanal();
             video.Categoria = ObterCategoria();
             video.QuantViews = ObterQuantViews();
+            video.QuantLikes = ObterQuantLikes();
             video.Recomendacoes = RetornaLinksRecomendados();
 
             Console.WriteLine(video.Show());
-            Console.WriteLine("\nPassed");
+            Console.WriteLine("\nPegou todo mundo");
 
-            return video.Recomendacoes;
+            return video;
         }
 
+        public VideoYT RealizaIteracoes(int QuantIteracoes)
+        {
+            VideoYT videoYT = new VideoYT();
+
+            for (int i = 0; i < QuantIteracoes; i++)
+            {
+
+            }
+
+            return videoYT;
+        }
 
     }
 }

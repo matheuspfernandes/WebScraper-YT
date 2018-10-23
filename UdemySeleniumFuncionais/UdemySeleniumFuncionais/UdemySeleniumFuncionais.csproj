@@ -68,7 +68,7 @@
   <ItemGroup>
     <Compile Include="Base\DriverFactory.cs" />
     <Compile Include="POM\YouTubePageObject.cs" />
-    <Compile Include="RecomendacoesVideo.cs" />
+    <Compile Include="VideoYT.cs" />
     <Compile Include="UI\ManterAcessoGoogleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\YouTubeAccess.cs" />

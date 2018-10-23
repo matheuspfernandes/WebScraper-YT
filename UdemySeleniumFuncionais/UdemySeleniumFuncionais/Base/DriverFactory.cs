@@ -16,8 +16,6 @@ namespace Base
 {
     public class DriverFactory
     {
-        public string local = AppDomain.CurrentDomain.BaseDirectory;
-        private Actions action;
         public SqlConnectionStringBuilder SqlSB = new SqlConnectionStringBuilder();
         public ChromeOptions options;
 
@@ -276,6 +274,11 @@ namespace Base
 
         #region [Metodos do browser]
 
+        protected void AcessaLink(string link)
+        {
+            driver.Navigate().GoToUrl(link);
+        }
+
         protected void InicializaBrowserAnonimo(string linkToAccess)
         {
             options = new ChromeOptions();
@@ -307,7 +310,7 @@ namespace Base
             options.AddArgument("--start-maximized");
 
             driver = new ChromeDriver(options);
-            driver.Navigate().GoToUrl(linkToAccess);
+            AcessaLink(linkToAccess);
         }
 
         protected void FinalizaNavegador()
@@ -330,20 +333,7 @@ namespace Base
         #endregion
 
 
-        #region [Parametrização]
-
-        public int RetornaNumeroDaLinhaDeUmDiaUtil()
-        {
-            for (int i = 1; i <= 15; i++)
-            {
-                if (!driver.FindElement(By.XPath("(//tr[@id='linha']/td[2])[" + i + "]")).Text.Contains("sáb") &&
-                   !driver.FindElement(By.XPath("(//tr[@id='linha']/td[2])[" + i + "]")).Text.Contains("dom"))
-
-                    return i;
-            }
-
-            return 0;
-        }
+        #region [Retorno]
 
         /// <summary>
         /// Retorna o texto contido no elemento. Caso não tiver nenhum texto, retorna "empty"
@@ -366,87 +356,6 @@ namespace Base
                 return "empty";
             }
 
-        }
-
-        public bool IsTextInAlert(string MensagemEsperadaNoAlerta)
-        {
-            ReadOnlyCollection<IWebElement> Alertas;
-            bool TextoEstaNoAlerta = false;
-
-            if (IsElementPresent((By.CssSelector("p"))))
-            {
-                Alertas = driver.FindElements((By.XPath("//p")));
-
-                foreach (IWebElement alert in Alertas)
-                {
-                    if (alert.Text.Equals(MensagemEsperadaNoAlerta))
-                    {
-                        TextoEstaNoAlerta = true;
-                        break;
-                    }
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("O alerta não foi encontrado");
-                return TextoEstaNoAlerta;
-            }
-
-            return TextoEstaNoAlerta;
-        }
-
-        public bool AreTextsInAlerts(List<string> MensagensEsperadasNosAlertas)
-        {
-            ReadOnlyCollection<IWebElement> Alertas;
-            bool TextosEstaoNosAlertas = true;
-            bool AlertaEstaComOTexto = false;
-
-            if (IsElementPresent((By.CssSelector("p"))))
-            {
-                Alertas = driver.FindElements((By.XPath("//p")));
-
-                foreach (string alertText in MensagensEsperadasNosAlertas)
-                {
-                    foreach (IWebElement alert in Alertas)
-                    {
-                        AlertaEstaComOTexto = false;
-
-                        if (alert.Text.Equals(alertText))
-                        {
-                            AlertaEstaComOTexto = true;
-                            break;
-                        }
-                    }
-
-                    if (AlertaEstaComOTexto == false)
-                    {
-                        TextosEstaoNosAlertas = false;
-                        Console.WriteLine("O texto: " + "\"" + alertText + "\"" + " não foi encontrado nos alertas");
-                        break;
-                    }
-
-                }
-
-                //TextosEstaoNosAlertas = true;
-            }
-            else
-            {
-                Console.WriteLine("O alerta não foi encontrado");
-                return TextosEstaoNosAlertas;
-            }
-
-            return TextosEstaoNosAlertas;
-        }
-
-        public void ValidaCamposObrigatoriosGeral(string MensagemEsperadaNoAlerta)
-        {
-            EsperaPorElementoVisivel(By.CssSelector("p"));
-
-            if (!IsTextInAlert(MensagemEsperadaNoAlerta))
-                Assert.Fail("Os campo deveria ser obrigatorio, porem nao foi requisitado");
-            else
-                Console.WriteLine("Validou campo obrigatorio");
         }
 
         #endregion

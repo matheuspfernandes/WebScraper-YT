@@ -12,6 +12,8 @@ using Base;
 using OpenQA.Selenium.Remote;
 using UdemySeleniumFuncionais.POM;
 using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
 
 namespace UdemySeleniumFuncionais.UI
 {
@@ -24,21 +26,27 @@ namespace UdemySeleniumFuncionais.UI
         {
             try
             {
-                var link = "https://www.youtube.com/watch?v=TXteIWha4Jo";
+                var link = "https://www.youtube.com/watch?v=Ue77esm5Kqs&t=78s";
 
                 InicializaBrowserAnonimo(link);
                 Thread.Sleep(3000);
 
-                var listaRecomendacoes = PegaTodoMundo();
-                var listaTotal = new List<RecomendacoesVideo>();
+                var VideoPrincipal = IteracaoInicial();
+                var listaTotal = new List<VideoYT>();
 
-                foreach (var item in listaRecomendacoes)
+                foreach (var item in VideoPrincipal.Recomendacoes)
                 {
-                    driver.Url = item.Link;
-                    PegaTodoMundo();
-                    item.Show();
-                    Console.WriteLine("END\n\n");
+                    AcessaLink(item.Link);
+                    item.NomeVideo = ObterNome();
+                    item.NomeCanal = ObterNomeCanal();
+                    item.Categoria = ObterCategoria();
+                    item.QuantViews = ObterQuantViews();
+                    item.QuantLikes = ObterQuantLikes();
+                    item.Recomendacoes = RetornaLinksRecomendados();
+                    //item.Show();
                 }
+
+                Console.WriteLine("END\n\n");
             }
 
             catch (Exception e)
