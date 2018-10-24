@@ -329,7 +329,18 @@ namespace Base
 
 
         #region [DSL]
+        protected void PreencheCampo(string texto, By by)
+        {
+            EsperaPorElementoVisivel(by);
+            driver.FindElement(by).Clear();
+            driver.FindElement(by).SendKeys(texto);
+        }
 
+        protected void ClicaBotao(By by)
+        {
+            EsperaPorElementoClicavel(by);
+            driver.FindElement(by).Click();
+        }
         #endregion
 
 
