@@ -11,34 +11,34 @@ namespace UdemySeleniumFuncionais.POM
 
         public string ObterNomeCanal()
         {
-            EsperaPorElementoVisivel(By.XPath("//*[@id='owner - name']/a"));
+            //EsperaPorElementoVisivel(By.XPath("//*[@id='owner - name']/a"));
             return driver.FindElement(By.XPath("//*[@id='owner - name']/a")).Text;
         }
 
         public string ObterQuantLikes()
         {
-            EsperaPorElementoVisivel(By.XPath("//yt-formatted-string[contains(@aria-label,'gostaram')]"));
+            //EsperaPorElementoVisivel(By.XPath("//yt-formatted-string[contains(@aria-label,'gostaram')]"));
             return driver.FindElement(By.XPath("//yt-formatted-string[contains(@aria-label,'gostaram')]")).Text;
         } 
 
         public string ObterQuantViews()
         {
-            EsperaPorElementoVisivel(By.XPath("//*[@id='count']/yt-view-count-renderer/span[1]"));
+            //EsperaPorElementoVisivel(By.XPath("//*[@id='count']/yt-view-count-renderer/span[1]"));
             return driver.FindElement(By.XPath("//*[@id='count']/yt-view-count-renderer/span[1]")).Text;
         }
 
         public string ObterCategoria()
         {
-            EsperaPorElementoClicavel(By.XPath("//*[text()='Mostrar mais']/..//*[@role='button']"));
+            //EsperaPorElementoClicavel(By.XPath("//*[text()='Mostrar mais']/..//*[@role='button']"));
             driver.FindElement(By.XPath("//*[text()='Mostrar mais']/..//*[@role='button']")).Click();
 
-            EsperaPorElementoVisivel(By.XPath("//*[@id='collapsible']//*[text()='Categoria']/../..//yt-formatted-string/a"));
+            //EsperaPorElementoVisivel(By.XPath("//*[@id='collapsible']//*[text()='Categoria']/../..//yt-formatted-string/a"));
             return driver.FindElement(By.XPath("//*[@id='collapsible']//*[text()='Categoria']/../..//yt-formatted-string/a")).Text;
         }
 
         public string ObterNome()
         {
-            EsperaPorElementoVisivel(By.XPath("//*[@id='container']/h1/yt-formatted-string"));
+            //EsperaPorElementoVisivel(By.XPath("//*[@id='container']/h1/yt-formatted-string"));
             return driver.FindElement(By.XPath("//*[@id='container']/h1/yt-formatted-string")).Text;
         }
 

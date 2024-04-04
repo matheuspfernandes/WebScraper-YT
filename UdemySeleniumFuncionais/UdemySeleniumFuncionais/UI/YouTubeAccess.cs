@@ -1,19 +1,8 @@
 ﻿using System;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using System.Threading;
-using OpenQA.Selenium.Chrome;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium.Support.UI;
-using System.Drawing;
-using Base;
-using OpenQA.Selenium.Remote;
 using UdemySeleniumFuncionais.POM;
 using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
 
 namespace UdemySeleniumFuncionais.UI
 {

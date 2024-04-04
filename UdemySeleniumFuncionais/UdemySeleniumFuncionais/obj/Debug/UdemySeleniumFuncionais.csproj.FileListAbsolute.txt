@@ -1,10 +1,13 @@
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.dll
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.pdb
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.dll
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.dll
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.xml
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.xml
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
-C:\Users\mathe\Documents\Visual Studio 2015\CursoUdemySelenium\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csprojResolveAssemblyReference.cache
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CoreCompileInputs.cache
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\UdemySeleniumFuncionais.pdb
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.xml
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\WebDriver.Support.xml
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\bin\Debug\pt-BR\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.csproj.CopyComplete
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.dll
+D:\MY THINGS\Documentos\GitHub\WebScraper-YT\UdemySeleniumFuncionais\UdemySeleniumFuncionais\obj\Debug\UdemySeleniumFuncionais.pdb
